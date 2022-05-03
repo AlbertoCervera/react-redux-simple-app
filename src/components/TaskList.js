@@ -12,7 +12,7 @@ export function TaskList() {
   const [tarea,setTarea] = useState("")
 
   const listTasks = tasks.map((task,key) =>
-    <li>{key+1}  {task}</li>
+    <li key={key}>{key+1}  {task}</li>
   );
 
 
