@@ -15,6 +15,9 @@ export function TaskList() {
     <li>{key+1}  {task}</li>
   );
 
+
+  const counter = useSelector((state) => state.counter.value)
+
   return (
     <div className="TaskList">
       <h1>Tasklist</h1>
@@ -40,8 +43,10 @@ export function TaskList() {
           <ul>
             {listTasks}
           </ul>
+
           
         </div>
+          <span>Alerta:{counter > 3 ? "Mayor a 3": ""} </span>
       </div>
     </div>
   );
