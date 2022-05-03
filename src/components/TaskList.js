@@ -26,14 +26,16 @@ export function TaskList() {
 
           <h4>Introducir Tarea</h4>
           <input type="text" onChange={e => setTarea(e.target.value)} value={tarea} onKeyUp={(e)=>{
-            if(e.key==="Enter"){
+            if(e.key==="Enter" & tarea.length>0){
               dispatch(createTask(tarea))
               setTarea("")
             }
           }}/> 
           <button onClick={()=>{
-            dispatch(createTask(tarea))
-            setTarea("")
+            if(tarea.length>0){
+              dispatch(createTask(tarea))
+              setTarea("")
+            }
             }}>
               Crear
             </button>
@@ -46,7 +48,7 @@ export function TaskList() {
 
           
         </div>
-          <span>Alerta:{counter > 3 ? "Mayor a 3": ""} </span>
+          <span>{counter > 3 ? "Mayor a 3": ""} </span>
       </div>
     </div>
   );
